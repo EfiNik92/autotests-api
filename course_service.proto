@@ -1,0 +1,23 @@
+//Определение версии Protocol Buffers
+syntax = "proto3";
+
+//Определение пакета
+package courseservice;
+
+// Определяем сообщение запроса
+message GetCourseRequest {
+    string course_id =1;
+}
+
+// Определяем сообщение ответа
+message GetCourseResponse {
+    string course_id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+//Определяем gRPC-сервис
+service CourseService {
+    //Определяем метод GRPC-сервиса
+    rpc GetCourse (GetCourseRequest) returns (GetCourseResponse);
+}
